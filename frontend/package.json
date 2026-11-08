@@ -1,0 +1,22 @@
+{
+  "name": "loopa-frontend",
+  "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "dev:portal": "pnpm --filter @loopa/portal dev",
+    "dev:admin": "pnpm --filter @loopa/admin dev",
+    "dev:web": "pnpm --filter @loopa/web dev",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "gen:api": "openapi-typescript ${LOOPA_API_URL:-http://localhost:8080}/v3/api-docs -o layers/api/app/types/schema.d.ts",
+    "mock": "node tools/mock-api/server.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "openapi-typescript": "^7.13.0",
+    "turbo": "^2.11.10",
+    "typescript": "^5.9.0",
+    "vue-tsc": "^3.3.14"
+  }
+}

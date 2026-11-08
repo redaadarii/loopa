@@ -1,0 +1,9 @@
+{
+  "name": "@loopa/i18n",
+  "private": true,
+  "type": "module",
+  "main": "./nuxt.config.ts",
+  "dependencies": {
+    "@nuxtjs/i18n": "^10.6.0"
+  }
+}

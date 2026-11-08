@@ -1,0 +1,69 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource/ibm-plex-sans-arabic/400.css";
+@import "@fontsource/ibm-plex-sans-arabic/600.css";
+
+/*
+ * Design tokens Loopa.
+ * primary = vert Loopa (#0E7C6B), secondary = corail (#FF6B4A, réservé aux bonus et mises en avant).
+ * Le portail client surcharge --ui-primary avec la couleur du marchand.
+ */
+@theme static {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Inter Variable', ui-sans-serif, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', 'Inter Variable', sans-serif;
+
+  --color-loopa-50: #eaf7f4;
+  --color-loopa-100: #cdede6;
+  --color-loopa-200: #9edbcd;
+  --color-loopa-300: #66c2ae;
+  --color-loopa-400: #2fa28a;
+  --color-loopa-500: #0e7c6b;
+  --color-loopa-600: #0b6658;
+  --color-loopa-700: #095247;
+  --color-loopa-800: #08423a;
+  --color-loopa-900: #063530;
+  --color-loopa-950: #03201d;
+
+  --color-coral-50: #fff3f0;
+  --color-coral-100: #ffe2da;
+  --color-coral-200: #ffc4b5;
+  --color-coral-300: #ff9f87;
+  --color-coral-400: #ff8263;
+  --color-coral-500: #ff6b4a;
+  --color-coral-600: #ec4d2b;
+  --color-coral-700: #c5391c;
+  --color-coral-800: #9c2f19;
+  --color-coral-900: #7e2918;
+  --color-coral-950: #441209;
+
+  --color-ink: #0b1f1a;
+  --color-canvas: #f5f7f4;
+}
+
+:root {
+  --ui-radius: 0.5rem;
+  --ui-text: var(--color-ink);
+}
+
+body {
+  background: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+[dir='rtl'] body,
+[lang='ar'] body {
+  font-family: var(--font-arabic);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+[dir='rtl'] h1, [dir='rtl'] h2, [dir='rtl'] h3 {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+}

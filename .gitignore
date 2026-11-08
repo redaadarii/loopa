@@ -1,0 +1,17 @@
+# Java
+backend/target/
+*.class
+# Node / Nuxt
+node_modules/
+.nuxt/
+.output/
+.turbo/
+# Divers
+.env
+.idea/
+.vscode/
+.DS_Store
+# Vidéos brutes des parcours (tools/screenshots/capture.py --video)
+docs/video/raw/
+# Fichiers déposés en local par le back-end
+backend/data/

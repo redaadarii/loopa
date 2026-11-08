@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: loopa-api
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: ${LOOPA_DB_URL:jdbc:postgresql://localhost:5432/loopa}
+    username: ${LOOPA_DB_USER:loopa}
+    password: ${LOOPA_DB_PASSWORD:loopa}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+  data:
+    redis:
+      host: ${LOOPA_REDIS_HOST:localhost}
+      port: 6379
+  mail:
+    host: ${LOOPA_MAIL_HOST:localhost}
+    port: ${LOOPA_MAIL_PORT:1025}
+    username: ${LOOPA_MAIL_USER:}
+    password: ${LOOPA_MAIL_PASSWORD:}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 12MB
+  modulith:
+    events:
+      jdbc:
+        schema-initialization:
+          enabled: true    # table event_publication (outbox) créée par Spring Modulith
+      republish-outstanding-events-on-restart: true
+
+loopa:
+  security:
+    jwt-secret: ${LOOPA_JWT_SECRET}
+    admin-token-ttl: 8h
+    portal-token-ttl: 30m
+    cors-origins: ${LOOPA_CORS_ORIGINS:http://localhost:3000,http://localhost:3001,http://localhost:3002}
+  tenancy:
+    encryption-key: ${LOOPA_ENCRYPTION_KEY}
+  storage:
+    dir: ${LOOPA_STORAGE_DIR:./data/uploads}
+  mail:
+    from: ${LOOPA_MAIL_FROM:Loopa <no-reply@loopa.app>}
+  portal:
+    base-url: ${LOOPA_PORTAL_URL:http://localhost:3001}
+    expose-code: false
+  demo:
+    enabled: false
+  shopify:
+    api-key: ${LOOPA_SHOPIFY_API_KEY:}
+    api-secret: ${LOOPA_SHOPIFY_API_SECRET:}
+    api-url: ${LOOPA_API_URL:http://localhost:8080}
+    admin-url: ${LOOPA_ADMIN_URL:http://localhost:3002}
+    api-version: 2025-10
+
+server:
+  forward-headers-strategy: framework
+  error:
+    include-stacktrace: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs

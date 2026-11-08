@@ -1,0 +1,15 @@
+# Profil local : secrets de développement, boutique de démonstration, code OTP renvoyé par l'API.
+# Lancement : mvn spring-boot:run -Dspring-boot.run.profiles=dev
+loopa:
+  security:
+    jwt-secret: dev-only-secret-change-me-0123456789abcdef
+  tenancy:
+    encryption-key: ZGV2LW9ubHkta2V5LTMyLWJ5dGVzLWxvbmctISEhISE=
+  portal:
+    expose-code: true
+  demo:
+    enabled: true
+
+logging:
+  level:
+    app.loopa: DEBUG
